@@ -25,7 +25,7 @@ build:
                 -backend-config="bucket=gcs-bucket"
                 -backend-config="path=terraform.tfstate"
                 -backend-config="project=gcp-project"
-                -backend-config="credentials=$(cat account.json)
+                -backend-config="credentials=$(cat account.json)"
 ```
 
 Terraform cli run in `$WERCKER_SOURCE_DIR`
