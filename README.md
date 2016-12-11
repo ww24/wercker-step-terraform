@@ -10,6 +10,8 @@ Terraform installer and launcher for wercker.
 - `var_file` (optional) A `.tfvars` file
 - `remote_config` (optional) `remote config` arguments
 
+`command` and `remote_config` supported multi lines. `\n` will replaced ` ` (space).
+
 # Example
 
 ```yaml
@@ -19,10 +21,10 @@ build:
             command: plan
             var_file: variables.tfvars
             remote_config: |
-                -backend=gcs \
-                -backend-config="bucket=gcs-bucket" \
-                -backend-config="path=terraform.tfstate" \
-                -backend-config="project=gcp-project" \
+                -backend=gcs
+                -backend-config="bucket=gcs-bucket"
+                -backend-config="path=terraform.tfstate"
+                -backend-config="project=gcp-project"
                 -backend-config="credentials=$(cat account.json)
 ```
 
