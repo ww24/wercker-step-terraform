@@ -2,6 +2,8 @@
 
 Terraform installer and launcher for wercker.
 
+[![wercker status](https://app.wercker.com/status/df76928d3517477b1bfc1557ae764114/s/master "wercker status")](https://app.wercker.com/project/bykey/df76928d3517477b1bfc1557ae764114)
+
 # Options
 
 version:
