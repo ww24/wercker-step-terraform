@@ -3,7 +3,7 @@
 cli_args=
 
 if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
-  cli_args="$cli_args -var-file=variables.tfvars${WERCKER_TERRAFORM_VAR_FILE}"
+  cli_args="$cli_args -var-file=${WERCKER_TERRAFORM_VAR_FILE}"
 fi
 
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
