@@ -9,7 +9,7 @@ fi
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 
 if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
-  eval "$terraform_cli" "remote config" "${WERCKER_TERRAFORM_REMOTE_CONFIG}"
+  $terraform_cli remote config "${WERCKER_TERRAFORM_REMOTE_CONFIG}"
 fi
 
-eval "$terraform_cli" "${WERCKER_TERRAFORM_COMMAND}" "$cli_args"
+$terraform_cli "${WERCKER_TERRAFORM_COMMAND}" $cli_args
