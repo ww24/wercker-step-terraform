@@ -12,4 +12,4 @@ if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
   $terraform_cli remote config "${WERCKER_TERRAFORM_REMOTE_CONFIG}"
 fi
 
-$terraform_cli "${WERCKER_TERRAFORM_COMMAND}" $cli_args
+$terraform_cli "${WERCKER_TERRAFORM_COMMAND} $cli_args"
