@@ -22,10 +22,13 @@ build:
             var_file: variables.tfvars
             remote_config: |
                 -backend=gcs
-                -backend-config="bucket=gcs-bucket"
-                -backend-config="path=terraform.tfstate"
-                -backend-config="project=gcp-project"
-                -backend-config="credentials=$(cat account.json)"
+                -backend-config='bucket=gcs-bucket'
+                -backend-config='path=terraform.tfstate'
+                -backend-config='project=gcp-project'
+                -backend-config='credentials={
+                  "private_key": "$GCP_PRIVATE_KEY",
+                  "client_email": "$GCP_CLIENT_EMAIL"
+                }'
 ```
 
 Terraform cli run in `$WERCKER_SOURCE_DIR`
