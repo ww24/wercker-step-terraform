@@ -1,5 +1,13 @@
 #!/bin/sh
 
+rmlf() {
+  # https://github.com/koalaman/shellcheck/wiki/Ignore
+  # shellcheck disable=SC2005
+  # shellcheck disable=SC2046
+  # shellcheck disable=SC2116
+  echo $(echo "$1")
+}
+
 cli_args=
 
 if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
@@ -9,7 +17,9 @@ fi
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 
 if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
-  $terraform_cli remote config "$(echo "${WERCKER_TERRAFORM_REMOTE_CONFIG}")"
+  WERCKER_TERRAFORM_REMOTE_CONFIG=$(rmlf "${WERCKER_TERRAFORM_REMOTE_CONFIG}")
+  $terraform_cli remote config "${WERCKER_TERRAFORM_REMOTE_CONFIG}"
 fi
 
-$terraform_cli "$(echo "${WERCKER_TERRAFORM_COMMAND} $cli_args")"
+WERCKER_TERRAFORM_COMMAND=$(rmlf "${WERCKER_TERRAFORM_COMMAND}")
+$terraform_cli "${WERCKER_TERRAFORM_COMMAND} $cli_args"
