@@ -1,0 +1,9 @@
+box: wercker/default
+
+build:
+    steps:
+        - shellcheck:
+            files: run.sh
+
+        - install-packages:
+            packages: unzip curl
