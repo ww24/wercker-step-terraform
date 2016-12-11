@@ -30,11 +30,12 @@ remote_config:
 ```yaml
 build:
     steps:
-        - ww24/wercker-step-terraform:
+        - ww24/terraform:
             version: 0.7.13
             command: plan
             var_file: variables.tfvars
-            remote_config: | -backend=gcs \
+            remote_config: |
+                -backend=gcs \
                 -backend-config="bucket=gcs-bucket" \
                 -backend-config="path=terraform.tfstate" \
                 -backend-config="project=gcp-project" \
