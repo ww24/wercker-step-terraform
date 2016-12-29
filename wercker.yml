@@ -2,9 +2,6 @@ box: wercker/default
 
 build:
     steps:
-        - shellcheck:
-            files: run.sh
-
         - install-packages:
             packages: unzip curl
 
@@ -36,3 +33,6 @@ build:
             name: version
             code: |
                 "${WERCKER_ROOT}/terraform" --version
+
+        - shellcheck:
+            files: run.sh
