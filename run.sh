@@ -12,8 +12,10 @@ if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
   # initialize remote config
   rm -rf .terraform
 
-  WERCKER_TERRAFORM_REMOTE_CONFIG=${WERCKER_TERRAFORM_REMOTE_CONFIG//'\n'/' '}
-  if ! eval "$terraform_cli remote config ${WERCKER_TERRAFORM_REMOTE_CONFIG}"; then
+  cat "$terraform_cli remote config" > /tmp/remote_config
+  cat "$WERCKER_TERRAFORM_REMOTE_CONFIG" >> /tmp/remote_config
+  chmod +x /tmp/remote_config
+  if ! sh /tmp/remote_config; then
     fail "Invalid remote_config option"
   fi
 fi
