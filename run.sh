@@ -14,7 +14,7 @@ if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
 
   remote_config="${WERCKER_STEP_ROOT}/remote_config"
   echo "$terraform_cli remote config \\" > "$remote_config"
-  echo "${WERCKER_TERRAFORM_COMMAND//'\\n'/' '}" >> "$remote_config"
+  echo "${WERCKER_TERRAFORM_REMOTE_CONFIG//'\\n'/' '}" >> "$remote_config"
   chmod +x "$remote_config"
   if ! sh "$remote_config"; then
     fail "Invalid remote_config option"
