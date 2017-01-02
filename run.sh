@@ -1,5 +1,10 @@
 #!/bin/bash
 
+trim() {
+  # shellcheck disable=SC2001
+  echo "$1" | sed -e "s/\\\n\$//"
+}
+
 cli_args=
 
 if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
@@ -24,8 +29,3 @@ fi
 if ! eval "$terraform_cli ${WERCKER_TERRAFORM_COMMAND} $cli_args"; then
   fail "Invalid command option"
 fi
-
-trim() {
-  # shellcheck disable=SC2001
-  echo "$1" | sed -e "s/\\\n\$//"
-}
