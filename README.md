@@ -34,3 +34,11 @@ build:
 # License
 
 The MIT License (MIT)
+
+# Changelog
+
+## 0.4.0
+- Update terraform 0.8.2
+
+## 0.3.0
+- First stable release (terraform 0.7.13)

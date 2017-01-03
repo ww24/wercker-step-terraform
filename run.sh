@@ -5,6 +5,9 @@ trim() {
   echo "$1" | sed -e "s/\\\n\$//"
 }
 
+# output terraform version
+terraform -v
+
 cli_args=
 
 if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
@@ -14,6 +17,8 @@ fi
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 
 if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
+  echo "terraform remote config"
+
   # initialize remote config
   rm -rf .terraform
 
@@ -26,6 +31,7 @@ if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
   fi
 fi
 
+echo "terraform ${WERCKER_TERRAFORM_COMMAND} $cli_args"
 if ! eval "$terraform_cli ${WERCKER_TERRAFORM_COMMAND} $cli_args"; then
   fail "Invalid command option"
 fi

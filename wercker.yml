@@ -8,7 +8,7 @@ build:
         - script:
             name: set version
             code: |
-                export TERRAFORM_VERSION="0.7.13"
+                export TERRAFORM_VERSION="0.8.2"
                 echo "Installing version $TERRAFORM_VERSION of terraform"
 
         - script:
