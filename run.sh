@@ -5,9 +5,6 @@ trim() {
   echo "$1" | sed -e "s/\\\n\$//"
 }
 
-# output terraform version
-terraform -v
-
 cli_args=
 
 if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
@@ -15,6 +12,9 @@ if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
 fi
 
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
+
+# output terraform version
+$terraform_cli -v
 
 if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
   echo "terraform remote config"
