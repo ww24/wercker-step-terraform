@@ -12,9 +12,7 @@ if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
 fi
 
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
-
-# output terraform version
-$terraform_cli -v
+$terraform_cli --version
 
 if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
   echo "terraform remote config"
