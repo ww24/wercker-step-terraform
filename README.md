@@ -37,7 +37,7 @@ The MIT License (MIT)
 
 # Changelog
 
-## 0.4.0
+## 0.4.1
 - Update terraform 0.8.2
 
 ## 0.3.0
