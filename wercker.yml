@@ -8,8 +8,7 @@ build:
         - script:
             name: set version
             code: |
-                export TERRAFORM_VERSION="0.8.2"
-                echo "Installing version $TERRAFORM_VERSION of terraform"
+                export TERRAFORM_VERSION="0.9.3"
 
         - script:
             name: install terraform
@@ -18,6 +17,7 @@ build:
                 mkdir -p $terraform_dir
                 cd $terraform_dir
 
+                echo "Installing version $TERRAFORM_VERSION of terraform"
                 curl -sLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
