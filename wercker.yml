@@ -6,6 +6,13 @@ build:
             packages: unzip curl
 
         - script:
+            name: debug
+            code: |
+                uname -a
+                cat /etc/lsb-release
+                curl -V
+
+        - script:
             name: set version
             code: |
                 export TERRAFORM_VERSION="0.9.3"
