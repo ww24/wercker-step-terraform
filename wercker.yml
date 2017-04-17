@@ -1,16 +1,12 @@
-box: wercker/default
+box:
+    id: ubuntu
+    tag: "16.04"
+    cmd: /bin/bash
 
 build:
     steps:
         - install-packages:
             packages: unzip curl
-
-        - script:
-            name: debug
-            code: |
-                uname -a
-                cat /etc/lsb-release
-                curl -V
 
         - script:
             name: set version
@@ -25,7 +21,7 @@ build:
                 cd $terraform_dir
 
                 echo "Installing version $TERRAFORM_VERSION of terraform"
-                curl --tlsv1.2 -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                curl -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
