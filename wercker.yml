@@ -3,7 +3,7 @@ box: wercker/default
 build:
     steps:
         - install-packages:
-            packages: unzip curl openssl
+            packages: unzip curl
 
         - script:
             name: set version
@@ -18,7 +18,7 @@ build:
                 cd $terraform_dir
 
                 echo "Installing version $TERRAFORM_VERSION of terraform"
-                curl -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                curl --tlsv1 -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
