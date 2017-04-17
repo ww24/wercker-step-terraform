@@ -3,7 +3,7 @@ box: wercker/default
 build:
     steps:
         - install-packages:
-            packages: unzip curl
+            packages: unzip curl openssl
 
         - script:
             name: set version
