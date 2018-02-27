@@ -1,7 +1,4 @@
-box:
-    id: ubuntu
-    tag: "16.04"
-    cmd: /bin/bash
+box: debian:stretch
 
 build:
     steps:
