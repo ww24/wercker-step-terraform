@@ -1,4 +1,6 @@
-box: hashicorp/terraform:0.9.11
+box:
+    id: hashicorp/terraform:0.9.11
+    entrypoint: ""
 
 build:
     steps:
