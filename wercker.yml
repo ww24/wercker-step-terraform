@@ -1,9 +1,9 @@
 box: wercker/default
 
 build:
-    - validate-wercker-step
-
     steps:
+        - validate-wercker-step
+
         - install-packages:
             packages: unzip curl
 
