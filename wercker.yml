@@ -1,28 +1,8 @@
-box: wercker/default
+box: terraform:0.9.11
 
 build:
     steps:
         - validate-wercker-step
-
-        - install-packages:
-            packages: unzip curl
-
-        - script:
-            name: set version
-            code: |
-                export TERRAFORM_VERSION="0.9.11"
-
-        - script:
-            name: install terraform
-            code: |
-                terraform_dir=/tmp/terraform
-                mkdir -p $terraform_dir
-                cd $terraform_dir
-
-                echo "Installing version $TERRAFORM_VERSION of terraform"
-                curl -vLO --tlsv1 "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
-                unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
-                rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
         - script:
             name: prepare output
