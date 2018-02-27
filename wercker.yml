@@ -1,13 +1,30 @@
-box:
-    id: hashicorp/terraform:0.9.11
-    entrypoint: ""
+box: debian:stable-slim
 
 build:
     steps:
+        - install-packages:
+            packages: unzip curl
+
+        - script:
+            name: set version
+            code: |
+                export TERRAFORM_VERSION="0.9.11"
+
+        - script:
+            name: install terraform
+            code: |
+                terraform_dir=/tmp/terraform
+                mkdir -p $terraform_dir
+                cd $terraform_dir
+                echo "Installing version $TERRAFORM_VERSION of terraform"
+                curl -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+
         - script:
             name: prepare output
             code: |
-                cp $(which terraform) "${WERCKER_ROOT}/terraform"
+                mv /tmp/terraform/terraform "${WERCKER_ROOT}/terraform"
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
 
@@ -15,9 +32,6 @@ build:
             name: version
             code: |
                 "${WERCKER_ROOT}/terraform" --version
-
-        - shellcheck:
-            files: run.sh
 
 publish:
     steps:
