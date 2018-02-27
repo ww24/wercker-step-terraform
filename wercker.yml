@@ -1,7 +1,4 @@
-box:
-    id: hashicorp/terraform
-    tag: 0.9.11
-    registry: index.docker.io
+box: hashicorp/terraform:0.9.11
 
 build:
     steps:
