@@ -1,4 +1,4 @@
-box: wercker/default
+box: debian:stable-slim
 
 build:
     steps:
@@ -8,8 +8,7 @@ build:
         - script:
             name: set version
             code: |
-                export TERRAFORM_VERSION="0.8.2"
-                echo "Installing version $TERRAFORM_VERSION of terraform"
+                export TERRAFORM_VERSION="0.9.11"
 
         - script:
             name: install terraform
@@ -17,8 +16,8 @@ build:
                 terraform_dir=/tmp/terraform
                 mkdir -p $terraform_dir
                 cd $terraform_dir
-
-                curl -sLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                echo "Installing version $TERRAFORM_VERSION of terraform"
+                curl -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
@@ -34,5 +33,7 @@ build:
             code: |
                 "${WERCKER_ROOT}/terraform" --version
 
-        - shellcheck:
-            files: run.sh
+publish:
+    steps:
+        - internal/publish-step:
+            owner: ww24
