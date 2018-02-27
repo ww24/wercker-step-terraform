@@ -1,4 +1,4 @@
-box: debian:9.3-slim
+box: wercker/default
 
 build:
     steps:
