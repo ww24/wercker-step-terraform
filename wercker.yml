@@ -2,8 +2,6 @@ box: hashicorp/terraform:0.9.11
 
 build:
     steps:
-        - validate-wercker-step
-
         - script:
             name: prepare output
             code: |
@@ -18,3 +16,8 @@ build:
 
         - shellcheck:
             files: run.sh
+
+publish:
+    steps:
+        - internal/publish-step:
+            owner: ww24
