@@ -1,4 +1,4 @@
-box: debian:stretch
+box: debian:9.3-slim
 
 build:
     steps:
