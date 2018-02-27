@@ -1,4 +1,7 @@
-box: terraform:0.9.11
+box:
+    id: terraform
+    tag: 0.9.11
+    registry: index.docker.io
 
 build:
     steps:
@@ -7,7 +10,7 @@ build:
         - script:
             name: prepare output
             code: |
-                mv /tmp/terraform/terraform "${WERCKER_ROOT}/terraform"
+                cp $(which terraform) "${WERCKER_ROOT}/terraform"
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
 
