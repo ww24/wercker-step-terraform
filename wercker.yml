@@ -1,5 +1,5 @@
 box:
-    id: terraform
+    id: hashicorp/terraform
     tag: 0.9.11
     registry: index.docker.io
 
