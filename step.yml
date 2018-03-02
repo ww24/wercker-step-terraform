@@ -1,16 +1,17 @@
 name: terraform
-version: 0.4.1
+version: 0.4.2
 description: Step to setup and run terraform
+summary: Step to setup and run terraform
 keywords:
     - terraform
 properties:
-    command:
+  - name: command
         type: string
         required: false
         default: apply
-    var_file:
+  - name: var_file
         type: string
         required: false
-    remote_config:
+  - name: remote_config
         type: string
         required: false
