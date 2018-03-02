@@ -1,4 +1,4 @@
-box: wercker/default
+box: debian:stable-slim
 
 build:
     steps:
@@ -36,6 +36,6 @@ build:
 
         - shellcheck:
             files: run.sh
-          
+
         - internal/publish-step:
             owner: ww24
