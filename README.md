@@ -2,7 +2,7 @@
 
 Terraform installer and launcher for wercker.
 
-[![wercker status](https://app.wercker.com/status/df76928d3517477b1bfc1557ae764114/s/master "wercker status")](https://app.wercker.com/project/bykey/df76928d3517477b1bfc1557ae764114)
+[![wercker status](https://app.wercker.com/status/bd2d39bbc95b4b12caeb5caa3b495660/m/master "wercker status")](https://app.wercker.com/project/byKey/bd2d39bbc95b4b12caeb5caa3b495660)
 
 # Options
 
@@ -36,6 +36,10 @@ build:
 The MIT License (MIT)
 
 # Changelog
+Check versions: https://app.wercker.com/api/v3/steps/ww24/terraform
+
+## 0.8.8
+- Update terraform 0.8.8 (sync terraform version)
 
 ## 0.4.1
 - Update terraform 0.8.2
