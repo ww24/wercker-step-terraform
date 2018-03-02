@@ -20,7 +20,7 @@ build:
                 mkdir -p $terraform_dir
                 cd $terraform_dir
                 echo "Installing version ${TERRAFORM_VERSION} of terraform"
-                curl -vLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                curl -sLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
                 rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
