@@ -41,8 +41,8 @@ Check versions: https://app.wercker.com/api/v3/steps/ww24/terraform
 ## 0.8.8
 - Update terraform 0.8.8 (sync terraform version)
 
-## 0.4.1
+## 0.4.1 (deprecated)
 - Update terraform 0.8.2
 
-## 0.3.0
+## 0.3.0 (deprecated)
 - First stable release (terraform 0.7.13)
