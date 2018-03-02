@@ -38,6 +38,9 @@ The MIT License (MIT)
 # Changelog
 Check versions: https://app.wercker.com/api/v3/steps/ww24/terraform
 
+## 0.9.11
+- Update terraform 0.9.11
+
 ## 0.8.8
 - Update terraform 0.8.8 (sync terraform version)
 
