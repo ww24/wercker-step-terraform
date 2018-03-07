@@ -8,27 +8,17 @@ Terraform installer and launcher for wercker.
 
 - `command` (optional) Terraform command (can include some arguments) default: `apply`
 - `var_file` (optional) A `.tfvars` file
-- `remote_config` (optional) `remote config` arguments
-
-`command` and `remote_config` supported multi lines.
+- `backend_config` (optional) A backend config file
 
 # Example
 
 ```yaml
 build:
     steps:
-        - ww24/terraform:
+        - ww24/terraform@0.10.9:
             command: plan
             var_file: variables.tfvars
-            remote_config: |
-                -backend=gcs \
-                -backend-config='bucket=gcs-bucket' \
-                -backend-config='path=terraform.tfstate' \
-                -backend-config='project=gcp-project' \
-                -backend-config='credentials={ \
-                  "private_key": "$GCP_PRIVATE_KEY", \
-                  "client_email": "$GCP_CLIENT_EMAIL" \
-                }'
+            backend_config: backend.config
 ```
 
 # License
@@ -38,10 +28,16 @@ The MIT License (MIT)
 # Changelog
 Check versions: https://app.wercker.com/api/v3/steps/ww24/terraform
 
-## 0.10.8
+## 0.10.9
+- Fix backend config for terraform 0.10.9
+
+## 0.10.8 (deprecated)
 - Update terraform 0.10.8
 
-## 0.9.11
+## 0.9.12
+- Fix backend config for terraform 0.9.11
+
+## 0.9.11 (deprecated)
 - Update terraform 0.9.11
 
 ## 0.8.8
