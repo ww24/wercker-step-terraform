@@ -14,19 +14,11 @@ fi
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 $terraform_cli --version
 
-if [ -n "${WERCKER_TERRAFORM_REMOTE_CONFIG}" ]; then
-  echo "terraform remote config"
-
-  # initialize remote config
+if [ -n "${WERCKER_TERRAFORM_BACKEND_CONFIG}" ]; then
+  echo "terraform init"
+  # initialize backend config
   rm -rf .terraform
-
-  WERCKER_TERRAFORM_REMOTE_CONFIG=$(trim "${WERCKER_TERRAFORM_REMOTE_CONFIG//'\\n'/' '}")
-  remote_config="${WERCKER_STEP_ROOT}/remote_config.sh"
-  echo "$terraform_cli remote config \\" > "$remote_config"
-  echo "${WERCKER_TERRAFORM_REMOTE_CONFIG}" >> "$remote_config"
-  if ! sh "$remote_config"; then
-    fail "Invalid remote_config option"
-  fi
+  $terraform_cli init --backend-config="${WERCKER_TERRAFORM_BACKEND_CONFIG}"
 fi
 
 echo "terraform ${WERCKER_TERRAFORM_COMMAND} $cli_args"
