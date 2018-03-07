@@ -1,5 +1,5 @@
 name: terraform
-version: 0.11.3-rc.1
+version: 0.11.3
 summary: Step to setup and run terraform
 tags:
   - terraform
