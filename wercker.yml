@@ -11,7 +11,7 @@ build:
         - script:
             name: set version
             code: |
-                export TERRAFORM_VERSION="0.8.8"
+                export TERRAFORM_VERSION="0.9.11"
 
         - script:
             name: install terraform
