@@ -15,7 +15,7 @@ Terraform installer and launcher for wercker.
 ```yaml
 build:
     steps:
-        - ww24/terraform@0.9.11a:
+        - ww24/terraform@0.9.12:
             command: plan
             var_file: variables.tfvars
             backend_config: backend.tf
@@ -28,7 +28,7 @@ The MIT License (MIT)
 # Changelog
 Check versions: https://app.wercker.com/api/v3/steps/ww24/terraform
 
-## 0.9.11a
+## 0.9.12
 - Fix backend config for terraform 0.9.11
 
 ## 0.9.11 (deprecated)
