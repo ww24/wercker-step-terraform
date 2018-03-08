@@ -14,12 +14,7 @@ fi
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 $terraform_cli --version
 
-if [ -n "${WERCKER_TERRAFORM_BACKEND_CONFIG}" ]; then
-  echo "terraform init"
-  # initialize backend config
-  rm -rf .terraform
-  $terraform_cli init --backend-config="${WERCKER_TERRAFORM_BACKEND_CONFIG}"
-fi
+$terraform_cli init
 
 echo "terraform ${WERCKER_TERRAFORM_COMMAND} $cli_args"
 if ! eval "$terraform_cli ${WERCKER_TERRAFORM_COMMAND} $cli_args"; then

@@ -1,5 +1,5 @@
 name: terraform
-version: 0.11.3
+version: 0.11.3-rc.2
 summary: Step to setup and run terraform
 tags:
   - terraform
@@ -9,8 +9,5 @@ properties:
   required: false
   default: apply
 - name: var_file
-  type: string
-  required: false
-- name: backend_config
   type: string
   required: false

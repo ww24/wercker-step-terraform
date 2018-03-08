@@ -8,7 +8,6 @@ Terraform installer and launcher for wercker.
 
 - `command` (optional) Terraform command (can include some arguments) default: `apply`
 - `var_file` (optional) A `.tfvars` file
-- `backend_config` (optional) A backend config file
 
 # Example
 
@@ -18,7 +17,6 @@ build:
         - ww24/terraform@0.11.3:
             command: plan
             var_file: variables.tfvars
-            backend_config: backend.config
 ```
 
 # License
